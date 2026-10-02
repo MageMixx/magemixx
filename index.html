@@ -32,6 +32,7 @@ section{margin-top:64px}
 .pl input{flex:1;accent-color:var(--gold);min-width:0}
 .play{font-family:var(--d);font-weight:800;background:var(--gold);color:var(--on-gold);border:0;border-radius:999px;padding:11px 22px;font-size:1rem;cursor:pointer;min-width:92px}
 .pl .cap{margin:0;min-width:5.5em;text-align:right}
+.cpb{font-family:var(--d);font-weight:600;font-size:.85rem;padding:5px 12px;margin-left:6px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
 .tog{display:flex;gap:8px;margin-top:14px;align-items:center;flex-wrap:wrap}
 .tog button{font-size:.95rem;font-weight:600;padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
 .tog button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
@@ -90,7 +91,8 @@ footer{margin-top:72px;color:var(--mute);font-size:.9rem}
 <section>
 <h2>Ready to start?</h2>
 <p class="lead">Email your track details and a link to your stems. I'll reply with a quote and timeline.</p>
-<a class="btn" href="mailto:themagemix@gmail.com?subject=Mix%20request">Request a mix</a>
+<a class="btn" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=themagemix@gmail.com&amp;su=Mix%20request" target="_blank" rel="noopener">Request a mix</a>
+<p class="note">Or email <strong>themagemix@gmail.com</strong> <button id="cp" class="cpb">Copy</button></p>
 </section>
 
 <footer>Mage Mixx · themagemix@gmail.com · Ghana</footer>
@@ -114,6 +116,12 @@ document.getElementById('b2').setAttribute('aria-pressed',k==='a')}
 document.getElementById('b1').onclick=function(){sw('b')};
 document.getElementById('b2').onclick=function(){sw('a')};
 })();
+</script>
+<script>
+document.getElementById('cp').onclick=function(){var b=this,t='themagemix@gmail.com';
+function ok(){b.textContent='Copied'}
+try{navigator.clipboard.writeText(t).then(ok,function(){fb()})}catch(e){fb()}
+function fb(){var i=document.createElement('input');i.value=t;document.body.appendChild(i);i.select();try{document.execCommand('copy');ok()}catch(e){}document.body.removeChild(i)}};
 </script>
 </body>
 </html>
